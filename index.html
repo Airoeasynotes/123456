@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airme Organization - Empowering Developers & Creators</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb; /* Equivalent to blue-600 */
+            --primary-light: #3b82f6; /* Equivalent to blue-500 */
+            --primary-dark: #1d4ed8; /* Equivalent to blue-700 */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #1e293b; /* slate-800 */
+        }
+        
+        .tech-grid {
+            background-image: 
+                linear-gradient(to right, rgba(203, 213, 225, 0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(203, 213, 225, 0.2) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .nav-border {
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .feature-icon {
+            width: 60px; /* Increased size */
+            height: 60px; /* Increased size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px; /* Tailwind: rounded-xl */
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            color: var(--primary); /* Or text-blue-600 */
+            font-size: 28px; /* Increased size */
+        }
+        
+        .tech-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+        }
+
+        /* Removed .card-hover and .card-hover:hover as Framer Motion and Tailwind handle this now */
+    </style>
+</head>
+<body class="tech-grid">
+    <!-- Navigation -->
+    <nav class="glass-effect nav-border fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3"> 
+            <div class="flex justify-between items-center">
+                <a href="#" class="flex items-center">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-3 shadow-md">
+                        <i class="fas fa-code text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold text-slate-800">Airme<span class="text-blue-500">Org</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-blue-500 font-medium transition duration-300">About</a>
+                    <a href="#projects" class="text-slate-600 hover:text-blue-500 font-medium transition duration-300">Projects</a>
+                    <a href="#culture" class="text-slate-600 hover:text-blue-500 font-medium transition duration-300">Culture</a>
+                    <a href="#join" class="text-slate-600 hover:text-blue-500 font-medium transition duration-300">Join</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-slate-600 hover:text-blue-500 focus:outline-none">
+                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute top-full left-0 w-full border-t border-slate-200">
+            <a href="#about" class="block px-6 py-4 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 font-medium">About</a>
+            <a href="#projects" class="block px-6 py-4 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 font-medium">Projects</a>
+            <a href="#culture" class="block px-6 py-4 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 font-medium">Culture</a>
+            <a href="#join" class="block px-6 py-4 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition duration-300 font-medium">Join</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section class="hero-gradient pt-32 pb-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <div class="inline-block px-3 py-1 rounded-full bg-white shadow-sm mb-6">
+                            <span class="text-sm font-medium text-blue-500">Re-launched</span>
+                        </div>
+                        
+                        <h1 class="text-4xl md:text-5xl font-bold text-slate-800 leading-tight mb-6">
+                            We're not the best, <br>
+                            <span class="text-blue-500">but we're better!</span>
+                        </h1>
+                        
+                        <p class="text-lg text-slate-600 mb-8 max-w-lg">
+                            Empowering developers and creators to build without limits through collaborative innovation and accessible technology.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <motion.button
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow-md transition flex items-center btn-hover"
+                            >
+                                <i class="fas fa-user-plus mr-2"></i>
+                                Join us
+                            </motion.button>
+                            
+                            <motion.button
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                class="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition flex items-center btn-hover"
+                            >
+                                <i class="fas fa-rocket mr-2"></i>
+                                Explore Projects
+                            </motion.button>
+                        </div>
+                    </motion.div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.2, duration: 0.8 }}
+                        class="relative"
+                    >
+                        <div class="absolute -top-10 -left-10 w-64 h-64 bg-blue-100 rounded-full opacity-20"></div>
+                        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full opacity-20"></div>
+                        
+                        <div class="relative glass-effect p-6 rounded-2xl shadow-xl card-shadow">
+                            <div class="bg-slate-800 rounded-lg overflow-hidden">
+                                <div class="bg-slate-700 px-4 py-2 flex items-center">
+                                    <div class="flex space-x-2 mr-4">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                    </div>
+                                    <div class="text-xs text-slate-300 font-mono">terminal.js</div>
+                                </div>
+                                <div class="p-4 font-mono text-sm text-slate-200">
+                                    <div class="text-green-400">$ <span class="text-white">ao init project</span></div>
+                                    <div class="ml-4 my-2 text-blue-300">Initializing new AO project...</div>
+                                    <div class="ml-4 my-2 text-blue-300">Loading community modules...</div>
+                                    <div class="ml-4 my-2 text-green-300">✓ Connected to AO network</div>
+                                    <div class="ml-4 my-2">
+                                        <span class="text-purple-300">Welcome</span> 
+                                        <span class="text-white">to the future of collaborative development</span>
+                                    </div>
+                                    <div class="text-green-400">// <span class="text-white blink">_</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    class="p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white"
+                >
+                    <div class="text-5xl font-extrabold text-blue-500 mb-2">15</div>
+                    <div class="text-slate-600 font-medium">Active Members</div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1, duration: 0.6 }}
+                     class="p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white"
+                >
+                    <div class="text-5xl font-extrabold text-blue-500 mb-2">24</div>
+                    <div class="text-slate-600 font-medium">Projects</div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                     class="p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white"
+                >
+                    <div class="text-5xl font-extrabold text-blue-500 mb-2">5</div>
+                    <div class="text-slate-600 font-medium">Years Active</div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                     class="p-6 rounded-lg hover:shadow-xl transition-shadow duration-300 bg-white"
+                >
+                    <div class="text-5xl font-extrabold text-blue-500 mb-2">∞</div>
+                    <div class="text-slate-600 font-medium">Possibilities</div>
+                </motion.div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About AO -->
+    <section id="about" class="py-20 tech-pattern">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div class="lg:w-1/2">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <span class="text-blue-500 font-semibold uppercase tracking-wider text-sm">Who We Are</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-3 mb-6">
+                            Building the future <span class="text-blue-500">together</span>
+                        </h2>
+                        
+                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                            Founded on May 29, 2020 by Surya (Hemateja) and Sriya, Airme Organization began as a passion project between two developers who believed technology should be accessible to all.
+                        </p>
+                        
+                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                            Today, we've grown into a thriving community collaborating on innovative solutions that lower barriers to technology creation.
+                        </p>
+                        
+                        <div class="flex items-center space-x-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <div class="flex -space-x-2">
+                                
+                                
+                        </div>
+                    </motion.div>
+                </div>
+                
+                </section>
+                
+                  <section id="culture" class="py-20 tech-pattern">
+                           <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+                        >
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Inclusive Community</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">All skill levels welcome. We learn and grow together, fostering a supportive environment.</p>
+                        </motion.div>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.15, duration: 0.6 }}
+                            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+                        >
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Practical Innovation</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Real solutions for real problems with minimal overhead, focusing on impact.</p>
+                        </motion.div>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3, duration: 0.6 }}
+                            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+                        >
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Open Collaboration</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Transparent development process with shared ownership and open communication.</p>
+                        </motion.div>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.45, duration: 0.6 }}
+                            class="bg-white p-6 rounded-xl shadow-lg border border-slate-100"
+                        >
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-2">Sustainable Growth</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">Projects designed for long-term maintainability and community well-being.</p>
+                        </motion.div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section id="projects" class="py-20 bg-gradient-to-b from-white to-slate-100">
+        <div class="container mx-auto px-6">
+            <motion.div
+                initial={{ opacity: 0, y:20 }}
+                whileInView={{ opacity: 1, y:0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                class="text-center mb-16"
+            >
+                <span class="text-blue-500 font-semibold uppercase tracking-wider text-sm">What We Build</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-3 mb-4">Our Flagship <span class="text-blue-500">Projects</span></h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    Building tools that empower developers at all levels, fostering innovation and practical solutions.
+                </p>
+            </motion.div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    whileHover={{ y: -8, boxShadow: "0 25px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.06)" }}
+                    class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-lg flex flex-col"
+                >
+                    <div class="h-48 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-database text-6xl text-blue-500 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                            <span class="text-xs font-medium text-slate-500">Active Development</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Mini Database</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Lightweight database solution for prototypes and small projects.</p>
+                    </div>
+                    <div class="p-6 border-t border-slate-100">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full">TypeScript</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full">Node.js</span>
+                        </div>
+                    </div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1, duration: 0.6 }}
+                    whileHover={{ y: -8, boxShadow: "0 25px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.06)" }}
+                    class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-lg flex flex-col"
+                >
+                    <div class="h-48 bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center">
+                        <i class="fas fa-file-archive text-6xl text-purple-500 opacity-80"></i>
+                    </div>
+                     <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                            <span class="text-xs font-medium text-slate-500">Stable Release</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Binary Compression</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Efficient compression algorithms for modern applications.</p>
+                    </div>
+                    <div class="p-6 border-t border-slate-100">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full">Rust</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full">WASM</span>
+                        </div>
+                    </div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    whileHover={{ y: -8, boxShadow: "0 25px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.06)" }}
+                    class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-lg flex flex-col"
+                >
+                    <div class="h-48 bg-gradient-to-br from-yellow-50 to-orange-100 flex items-center justify-center">
+                        <i class="fas fa-server text-6xl text-yellow-600 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-3 h-3 rounded-full bg-yellow-400 mr-2 animate-pulse"></div>
+                            <span class="text-xs font-medium text-slate-500">Beta Testing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Shama Services</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Microservices architecture for scalable backend solutions.</p>
+                    </div>
+                    <div class="p-6 border-t border-slate-100">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">Go</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded-full">gRPC</span>
+                        </div>
+                    </div>
+                </motion.div>
+                
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    whileHover={{ y: -8, boxShadow: "0 25px 30px -10px rgba(0, 0, 0, 0.12), 0 10px 15px -5px rgba(0, 0, 0, 0.06)" }}
+                    class="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-lg flex flex-col"
+                >
+                    <div class="h-48 bg-gradient-to-br from-teal-50 to-cyan-100 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-teal-500 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-3">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                            <span class="text-xs font-medium text-slate-500">Active Development</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Automation Tools</h3>
+                        <p class="text-slate-600 mb-4 text-sm leading-relaxed">Simplify repetitive tasks with our automation scripts.</p>
+                    </div>
+                    <div class="p-6 border-t border-slate-100">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-teal-100 text-teal-600 text-xs font-semibold rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-600 text-xs font-semibold rounded-full">CLI</span>
+                        </div>
+                    </div>
+                </motion.div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crew Culture -->
+    <section id="culture" class="py-20 tech-pattern">
+        <div class="container mx-auto px-6">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                class="text-center mb-16"
+            >
+                 <span class="text-blue-500 font-semibold uppercase tracking-wider text-sm">Our Values</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-3 mb-4">The <span class="text-blue-500">Airme</span> Way</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                    The principles that guide our community, work, and collaborative spirit.
+                </p>
+            </motion.div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                        class="bg-white p-8 rounded-xl shadow-lg border border-slate-100"
+                    >
+                        <div class="flex items-start">
+                            <div class="mr-5 text-blue-500 text-3xl flex-shrink-0 mt-1">
+                                <i class="fas fa-fist-raised"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">We conquer together</h3>
+                                <p class="text-slate-600 leading-relaxed text-sm">
+                                    Every challenge is an opportunity we face as a united crew. Collaboration is at the heart of everything we do.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1, duration: 0.6 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                        class="bg-white p-8 rounded-xl shadow-lg border border-slate-100"
+                    >
+                        <div class="flex items-start">
+                            <div class="mr-5 text-blue-500 text-3xl flex-shrink-0 mt-1">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">AO for all</h3>
+                                <p class="text-slate-600 leading-relaxed text-sm">
+                                    Our doors are open to anyone with passion and willingness to learn. Diversity makes us stronger.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                        class="bg-white p-8 rounded-xl shadow-lg border border-slate-100"
+                    >
+                        <div class="flex items-start">
+                            <div class="mr-5 text-blue-500 text-3xl flex-shrink-0 mt-1">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">Creativity first</h3>
+                                <p class="text-slate-600 leading-relaxed text-sm">
+                                    We value unconventional thinking and fresh perspectives. The best ideas often come from unexpected places.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                    
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                        class="bg-white p-8 rounded-xl shadow-lg border border-slate-100"
+                    >
+                        <div class="flex items-start">
+                            <div class="mr-5 text-blue-500 text-3xl flex-shrink-0 mt-1">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">Passion driven</h3>
+                                <p class="text-slate-600 leading-relaxed text-sm">
+                                    We work on what excites us. Our projects are born from genuine interest and curiosity.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Brands & Partners Section - AO Version -->
+<section class="py-20 bg-slate-50">
+  <div class="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      class="text-center mb-16"
+    >
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+        Our <span class="text-blue-500">Ecosystem</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Brands and collaborations shaping Airme Organisation’s journey
+      </p>
+    </motion.div>
+
+    <!-- Brand Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Airtexts -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-book text-blue-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Airtexts</h3>
+          <p class="text-slate-600 mb-4">Learning materials & student tools (3 educational apps)</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-layer-group mr-2"></i>Part of AT division</div>
+        </div>
+      </motion.div>
+
+      <!-- Alpha SWS -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-600 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-cogs text-purple-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Alpha SWS</h3>
+          <p class="text-slate-600 mb-4">Simple software solutions for daily tasks (5+ tools)</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-code mr-2"></i>Lightweight utilities</div>
+        </div>
+      </motion.div>
+
+      <!-- Unknown.user.ao -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-gray-700 to-gray-900 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-user-secret text-gray-800 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Unknown.user.ao</h3>
+          <p class="text-slate-600 mb-4">An anonymous, safe space for creators and seekers</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-globe mr-2"></i>Community driven</div>
+        </div>
+      </motion.div>
+
+      <!-- Quant-AO -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-yellow-500 to-yellow-600 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-search text-yellow-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Quant-AO</h3>
+          <p class="text-slate-600 mb-4">Content research lab focused on social & startup studies</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-lightbulb mr-2"></i>Creative insights</div>
+        </div>
+      </motion.div>
+
+      <!-- AO Sphere -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-green-500 to-green-600 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-briefcase text-green-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">AO Sphere</h3>
+          <p class="text-slate-600 mb-4">Startup support tools, workspace apps & biz services (25+)</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-network-wired mr-2"></i>Growth-focused</div>
+        </div>
+      </motion.div>
+
+      <!-- Delete (Upcoming) -->
+      <motion.div ... class="...">
+        <div class="h-48 bg-gradient-to-r from-red-500 to-red-600 relative">
+          <div class="absolute inset-0 flex items-center justify-center text-white text-5xl font-bold opacity-10 group-hover:opacity-20">AO</div>
+          <div class="absolute bottom-4 left-4">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-md">
+              <i class="fas fa-hourglass-half text-red-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-slate-800 mb-2">Delete</h3>
+          <p class="text-slate-600 mb-4">Upcoming initiative – stay tuned!</p>
+          <div class="text-sm text-slate-500"><i class="fas fa-spinner mr-2"></i>In the works</div>
+        </div>
+      </motion.div>
+    </div>
+
+</section>
+
+<section class="py-20 bg-gradient-to-b from-white via-slate-100 to-blue-50">
+  <div class="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      class="text-center mb-16"
+    >
+      <h2 class="text-4xl md:text-5xl font-bold text-blue-800 tracking-tight mb-4">
+        Meet Our <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-blue-600">Partners</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Together with our partners, we code the future—one line at a time.
+      </p>
+    </motion.div>
+
+    <!-- Partner Grid with Twist -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <!-- Partner Card -->
+      <motion.div
+        whileHover={{ rotate: -1, scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        class="bg-white/10 backdrop-blur-md border border-blue-200 shadow-xl p-6 rounded-2xl hover:shadow-2xl transition relative group overflow-hidden"
+      >
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl blur-sm"></div>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2">Meanet</h3>
+          <p class="text-sm text-slate-600">Hypotheses tech research (SMT)</p>
+        </div>
+      </motion.div>
+
+      <!-- Repeat for other partners -->
+      <motion.div whileHover={{ rotate: 1, scale: 1.05 }} whileTap={{ scale: 0.98 }}
+        class="bg-white/10 backdrop-blur-md border border-teal-200 shadow-xl p-6 rounded-2xl group transition relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-green-500/10 via-teal-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl blur-sm"></div>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <i class="fas fa-users-cog text-4xl text-green-600 mb-4"></i>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2">DBSS</h3>
+          <p class="text-sm text-slate-600">Startup public org & resources</p>
+        </div>
+      </motion.div>
+
+      <motion.div whileHover={{ rotate: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}
+        class="bg-white/10 backdrop-blur-md border border-yellow-300 shadow-xl p-6 rounded-2xl group transition relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl blur-sm"></div>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <i class="fas fa-cogs text-4xl text-yellow-500 mb-4"></i>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2">S⁹</h3>
+          <p class="text-sm text-slate-600">Shama automation tools (9+ apps)</p>
+        </div>
+      </motion.div>
+
+      <motion.div whileHover={{ rotate: 2, scale: 1.05 }} whileTap={{ scale: 0.98 }}
+        class="bg-white/10 backdrop-blur-md border border-pink-300 shadow-xl p-6 rounded-2xl group transition relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-400/10 via-rose-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl blur-sm"></div>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <i class="fas fa-gamepad text-4xl text-pink-500 mb-4"></i>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2">26softcreations</h3>
+          <p class="text-sm text-slate-600">Virtual space tech & indie game devs</p>
+        </div>
+      </motion.div>
+
+      <motion.div whileHover={{ rotate: -3, scale: 1.05 }} whileTap={{ scale: 0.98 }}
+        class="bg-white/10 backdrop-blur-md border border-blue-400 shadow-xl p-6 rounded-2xl group transition relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-indigo-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl blur-sm"></div>
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <i class="fas fa-users text-4xl text-blue-500 mb-4"></i>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2">Dev Circle</h3>
+          <p class="text-sm text-slate-600">Remote dev network powering AO tech</p>
+        </div>
+      </motion.div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
+      <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
+        class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-md transition">
+        <i class="fas fa-handshake mr-2"></i>
+        Join AO Network
+      </motion.button>
+      <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}
+        class="border border-blue-600 text-blue-600 hover:bg-blue-100 px-8 py-3 rounded-full font-semibold transition">
+        <i class="fas fa-book-reader mr-2"></i>
+        Explore More
+      </motion.button>
+    </div>
+  </div>
+</section>
+    <!-- Join the Movement -->
+    <section id="join" class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
+            >
+                <i class="fas fa-users text-5xl text-blue-200 mb-6"></i>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6">
+                    Ready to Shape the Future?
+                </h2>
+                <p class="text-lg text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Become a part of Airme Organization and contribute to projects that matter. Whether you're a seasoned developer or just starting, your skills and passion are welcome here.
+                </p>
+                <motion.a
+                    href="https://discord.gg/your-discord-link" target="_blank" rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, boxShadow: "0px 10px 25px rgba(255,255,255,0.2)" }}
+                    whileTap={{ scale: 0.98 }}
+                    class="inline-block bg-white hover:bg-slate-100 text-blue-600 px-10 py-4 rounded-lg font-semibold shadow-xl transition duration-300 text-lg"
+                >
+                    <i class="fab fa-join mr-3"></i>                
+                    Join
+                </motion.a>
+            </motion.div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold text-dark">Airme<span class="text-blue-400">Org</span></span>
+                    </div>
+                    <p class="text-sm mb-6 leading-relaxed">
+                        Empowering developers and creators to build without limits since 2020. Join our mission.
+                    </p>
+                    <div class="flex space-x-5">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition text-2xl"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition text-2xl"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold text-dark uppercase tracking-wider mb-5">Navigation</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-sm hover:text-blue-300 transition">About Us</a></li>
+                        <li><a href="#projects" class="text-sm hover:text-blue-300 transition">Our Projects</a></li>
+                        <li><a href="#culture" class="text-sm hover:text-blue-300 transition">Our Culture</a></li>
+                        <li><a href="#join" class="text-sm hover:text-blue-300 transition">Join the Community</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold text-dark uppercase tracking-wider mb-5">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm hover:text-blue-300 transition">Documentation</a></li>
+                        <li><a href="#" class="text-sm hover:text-blue-300 transition">Tutorials & Guides</a></li>
+                        <li><a href="#" class="text-sm hover:text-blue-300 transition">Community Blog</a></li>
+                        <li><a href="#" class="text-sm hover:text-blue-300 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-md font-semibold text-dark uppercase tracking-wider mb-5">Get In Touch</h4>
+                    <ul class="space-y-3">
+                        <li class="text-sm flex items-center"><i class="fas fa-envelope mr-2 text-blue-400"></i> contact@aorg.in</li>
+                        <li class="text-sm flex items-center"><i class="fas fa-phone mr-2 text-blue-400"></i> +91 (XXX) XXX-XXXX</li>
+                        <li class="text-sm flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-400"></i> Hyderabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-10 border-t border-slate-700 text-sm text-center text-slate-400">
+                <p>© 2020 - <span id="currentYear"></span> Airme Organization. All rights reserved.</p>
+                <p class="mt-2">Proudly built by an Indian <i class="fas fa-heart text-red-500"></i> </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Blinking cursor animation
+            const cursor = document.querySelector('.blink');
+            if (cursor) {
+                setInterval(() => {
+                    cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                }, 500);
+            }
+
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+
+            if (menuButton && mobileMenu && menuIcon) {
+                menuButton.addEventListener('click', () => {
+                    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                    menuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    if (mobileMenu.classList.contains('hidden')) {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    } else {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times');
+                    }
+                });
+
+                // Close mobile menu when a link is clicked
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuButton.setAttribute('aria-expanded', 'false');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
